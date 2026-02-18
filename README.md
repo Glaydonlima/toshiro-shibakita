@@ -4,6 +4,11 @@ Este projeto é uma demonstração prática de uma arquitetura de microsserviço
 
 ---
 
+## 🧱 Projeto Base
+Inspirado no projeto original de [Denilson Bonatti (DIO)](https://github.com/denilsonbonatti/toshiro-shibakita).
+
+---
+
 ## 🚀 O que este projeto faz?
 
 Quando você acessa a aplicação, o sistema:
@@ -79,9 +84,3 @@ Este projeto é excelente para entender:
 -   **Orquestração**: Como o Docker Compose gerencia a ordem de subida (o App espera o Banco de Dados).
 
 ---
-
-## 🧱 Projeto Base
-Inspirado no projeto original de [Denilson Bonatti (DIO)](https://github.com/denilsonbonatti/toshiro-shibakita).
-
----
-*Este README foi desenhado para ser amigável e explicativo para desenvolvedores de todos os níveis.*
