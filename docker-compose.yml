@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  database:
+    image: mysql:5.7
+    command: --innodb_use_native_aio=0
+    container_name: mysql-db
+    restart: always
+    environment:
+      - MYSQL_DATABASE=meubanco
+      - MYSQL_ROOT_PASSWORD=Senha123
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./DataBase/banco.sql:/docker-entrypoint-initdb.d/banco.sql
+
+  app:
+    build:
+      context: ./App
+    container_name: node-app
+    restart: always
+    ports:
+      - "8080:80"
+    depends_on:
+      - database
+    environment:
+      - DB_HOST=database
+      - DB_USER=root
+      - DB_PASS=Senha123
+      - DB_NAME=meubanco
+
+  nginx:
+    build:
+      context: ./Nginx
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - app
